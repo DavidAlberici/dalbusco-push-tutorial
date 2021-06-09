@@ -1,0 +1,7 @@
+{
+  "name": "dalbusco-push-tutorial",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
