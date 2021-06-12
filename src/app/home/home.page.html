@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Version 13.24</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -18,8 +18,13 @@
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
   
-  <ion-button (click)="addMessage()" expand="block" fill="outline">Agregar mensaje</ion-button>
+  <ion-button (click)="requestPermission()" expand="block" fill="outline">Pedir permiso</ion-button>
+  <p>Token: {{token}}</p>
+  <ion-button (click)="listen()" expand="block" fill="outline">Escuchar notificaciones</ion-button>
+  <p>Ultimo mensaje: {{payload}}</p>
   
+  <ion-button (click)="addMessage()" expand="block" fill="outline">Agregar mensaje</ion-button>
+
   <ion-list lines="full">
     <ion-item button *ngFor="let message of messages">
       <ion-label>

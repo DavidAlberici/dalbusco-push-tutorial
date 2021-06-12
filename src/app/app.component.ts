@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core'
+import { AngularFireMessaging } from '@angular/fire/messaging'
 import { firebase } from '@firebase/app'
 import { Platform } from '@ionic/angular'
 import { environment } from '../environments/environment'
@@ -17,12 +18,12 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   async ngOnInit() {
     firebase.initializeApp(environment.firebase)
-    await this.notificationsService.init()
+    // await this.notificationsService.init()
   }
 
   ngAfterViewInit() {
-    this.platform.ready().then(async () => {
-      await this.notificationsService.requestPermission()
-    })
+    // this.platform.ready().then(async () => {
+    //   await this.notificationsService.requestPermission()
+    // })
   }
 }

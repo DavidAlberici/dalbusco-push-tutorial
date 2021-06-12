@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core'
+import { AngularFireMessaging } from '@angular/fire/messaging'
 
 import { firebase } from '@firebase/app'
 import '@firebase/messaging'
+import { Observable } from 'rxjs'
 import { environment } from '../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationsService {
+
+  constructor(
+    private angularFireMessaging: AngularFireMessaging
+  ) {}
+
   init(): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       navigator.serviceWorker.ready.then((registration) => {
@@ -72,5 +79,9 @@ export class NotificationsService {
 
       resolve();
     });
+  }
+
+  getNotificationObservable(): Observable<{}> {
+    return this.angularFireMessaging.messages
   }
 }
