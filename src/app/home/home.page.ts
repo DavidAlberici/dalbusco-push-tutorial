@@ -7,6 +7,21 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public messages = [
+    {
+      title: "Estático",
+      content: "Este mensaje está siempre presente"
+    }
+  ]
+
+  addMessage() {
+    this.messages.push(
+      {
+        title: "Agregado con boton",
+        content: "Este mensaje fue agregado pulsando el boton"
+      })
+  }
+
   constructor() {}
 
 }

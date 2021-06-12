@@ -17,4 +17,15 @@
     <strong>Ready to create an app?</strong>
     <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
+  
+  <ion-button (click)="addMessage()" expand="block" fill="outline">Agregar mensaje</ion-button>
+  
+  <ion-list lines="full">
+    <ion-item button *ngFor="let message of messages">
+      <ion-label>
+        <h3>{{message?.title}}</h3>
+        <p>{{message?.content}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
