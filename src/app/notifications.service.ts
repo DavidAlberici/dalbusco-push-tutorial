@@ -60,7 +60,8 @@ export class NotificationsService {
         return
       } try {
         const messaging = firebase.messaging()
-        await messaging.requestPermission()
+        // await messaging.requestPermission()
+        await Notification.requestPermission() //test this
 
         const token: string = await messaging.getToken()
 
