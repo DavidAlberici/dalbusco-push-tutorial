@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import {firebase} from '@firebase/app'
 import {environment} from '../environments/environment'
+import { NotificationsService } from './notifications.service'
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,12 @@ import {environment} from '../environments/environment'
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private notificationsService: NotificationsService
+  ) {}
   
   async ngOnInit() {
-    firebase.initializeApp(environment.firebase);
+    firebase.initializeApp(environment.firebase)
+    await this.notificationsService.init()
   }
 }
